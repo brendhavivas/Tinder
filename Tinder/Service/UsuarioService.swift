@@ -27,10 +27,10 @@ class UsuarioService{
     
     ]
     
-    func buscaUsuarios () -> [Usuario]{
+    func buscaUsuarios (completion: @escaping ([Usuario]?, Error?) -> ()) {
         
-        let usuarios: [Usuario] = []
-        
-        return self.usuarios
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            completion(self.usuarios, nil)
+        }
     }
 }
